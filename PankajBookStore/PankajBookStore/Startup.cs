@@ -16,6 +16,7 @@ namespace PankajBookStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,13 +27,27 @@ namespace PankajBookStore
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.Use(async(context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hellow from my first Middleware");
+
+            //    await next();
+
+            //    await context.Response.WriteAsync("Hellow from my first Middleware response");
+            //});
+
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.MapDefaultControllerRoute();
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.Map("/pankaj", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync("Hello Pankaj!");
                 });
             });
         }
