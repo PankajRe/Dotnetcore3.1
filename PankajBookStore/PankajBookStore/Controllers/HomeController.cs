@@ -3,15 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 
 namespace PankajBookStore.Controllers
 {
     public class HomeController:Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "Pankaj";
+            return View();
         }
+
+        public ViewResult AboutUs()
+        {
+            return View();
+        }
+
+        public ViewResult ContactUs()
+        {
+            return View();
+        }
+
+
     }
 }
 

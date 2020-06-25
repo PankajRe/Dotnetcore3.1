@@ -36,7 +36,7 @@ namespace PankajBookStore
             //    await context.Response.WriteAsync("Hellow from my first Middleware response");
             //});
 
-
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
